@@ -14,5 +14,9 @@ export default [
     // recommended configuration included in the plugin
     ...html.configs["flat/recommended"],
     files: ["**/*.html", "**/*.ejs"],
+    rules: {
+      ...html.configs["flat/recommended"].rules,
+      "@html-eslint/require-li-container": "off",
+    },
   },
 ];

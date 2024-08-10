@@ -1,18 +1,6 @@
 import express from "express";
 import indexController from "../controllers/index.ts";
 import path from "path";
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
 
 const app = express();
 app.use(express.static(path.join(__dirname, "../public/")));
