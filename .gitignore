@@ -1,5 +1,4 @@
-public/**/*
-# Logs
+# Logspublic
 logs
 *.log
 npm-debug.log*
