@@ -25,6 +25,7 @@
     "typescript-eslint": "^8.0.1"
   },
   "scripts": {
-    "dev": "npx nodemon ./routes/index.ts & npx sass --watch ./scss/styles.scss ./public/styles.css"
+    "dev": "npx nodemon ./routes/index.ts & npx sass --watch ./scss/styles.scss ./public/styles.css",
+    "start": "npx ts-node ./routes/index.ts"
   }
 }
