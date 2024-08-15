@@ -3,6 +3,7 @@ import indexController from "../controllers/index.ts";
 
 import path from "path";
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.static(path.join(__dirname, "../public/")));
 app.use(express.urlencoded({ extended: true }));
@@ -12,4 +13,4 @@ app.set("view engine", "ejs");
 app.get("/", indexController.get);
 app.post("/new", indexController.post);
 
-app.listen(3000, () => console.log("server started"));
+app.listen(PORT, () => console.log("server started"));
