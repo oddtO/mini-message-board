@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
+import type { Message } from "../data";
 import { messages } from "../data";
 import { format } from "date-fns";
-type Flatten<Type> = Type extends Array<infer Item> ? Item : never;
 
 type RequestBody = {
   username: string;
@@ -16,13 +16,14 @@ Date.prototype.toString = function () {
   return format(this, "h:mm - EEE MMM d yyyy");
 };
 
+// Array.prototype.reverseForEach =
 function get(req: Request, res: Response) {
   res.render("index", { messages });
 }
 
 function post(req: Request, res: Response) {
   const reqBody = req.body as RequestBody;
-  const newMessage: Flatten<typeof messages> = {
+  const newMessage: Message = {
     text: reqBody.message,
     user: reqBody.username,
     added: new Date(),
@@ -32,4 +33,5 @@ function post(req: Request, res: Response) {
 
   res.redirect("/");
 }
+
 export default { get, post };

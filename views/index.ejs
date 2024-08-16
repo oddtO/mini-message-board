@@ -14,7 +14,7 @@
                 <h2>Messages</h2>
                 <ul>
 				
-                    <% messages.forEach(function(message){ %>
+                    <% messages.reverseForEach(function(message){ %>
                     <%- include('message', {message: message}); %>
                     <% }); %>
 
@@ -30,12 +30,14 @@
                         name="username"
                         id="username"
                         placeholder="username"
+                        required
                     >
                     <input
                         type="text"
                         name="message"
                         id="message"
                         placeholder="message"
+                        required
                     >
                 </div>
 
