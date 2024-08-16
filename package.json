@@ -21,11 +21,13 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-scss": "^6.5.0",
     "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.1"
   },
   "scripts": {
-    "dev": "npx nodemon ./routes/index.ts & npx sass --watch ./scss/styles.scss ./public/styles.css",
-    "start": "npx ts-node ./routes/index.ts"
+    "dev": "npx nodemon ./ts/routes/index.ts & npx sass --watch ./scss/styles.scss ./public/styles.css",
+    "build": "npx tsc",
+    "start": "node ./js/routes/index.js"
   }
 }
