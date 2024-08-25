@@ -1,8 +1,6 @@
 import type { Request, Response } from "express";
-import type { Message } from "../data";
-import { messages } from "../data";
 import { format } from "date-fns";
-
+import { db } from "../db/queries";
 type RequestBody = {
   username: string;
   message: string;
@@ -17,20 +15,13 @@ Date.prototype.toString = function () {
 };
 
 // Array.prototype.reverseForEach =
-function get(req: Request, res: Response) {
+async function get(req: Request, res: Response) {
+  const messages = await db.getMessages();
   res.render("index", { messages });
 }
 
-function post(req: Request, res: Response) {
-  const reqBody = req.body as RequestBody;
-  const newMessage: Message = {
-    text: reqBody.message,
-    user: reqBody.username,
-    added: new Date(),
-  };
-
-  messages.push(newMessage);
-
+async function post(req: Request<object, object, RequestBody>, res: Response) {
+  await db.storeMessage(req.body.message, req.body.username);
   res.redirect("/");
 }
 

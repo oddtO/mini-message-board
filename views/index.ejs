@@ -14,7 +14,7 @@
                 <h2>Messages</h2>
                 <ul>
 				
-                    <% messages.reverseForEach(function(message){ %>
+                    <% messages.reverse().forEach(function(message){ %>
                     <%- include('message', {message: message}); %>
                     <% }); %>
 
