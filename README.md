@@ -4,7 +4,7 @@
 
 ## Deployment
 
-* [See on koyeb](https://advisory-kristan-theodinproject-oddto-610b337d.koyeb.app/)
+* [See on vercel](https://mini-message-board-mauve.vercel.app/)
 
 
 <!-- GETTING STARTED -->
@@ -33,7 +33,7 @@ You will need `Node.js` and `npm` installed globally on your machine.
    ```
 4. Run dev server on http://localhost:3000 (reads from .env file by default)
    ```sh
-   npm run dev
+   npm run start-dev
    ```
 5. Compile for production
    ```sh

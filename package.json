@@ -38,9 +38,9 @@
     "typescript-eslint": "^8.0.1"
   },
   "scripts": {
-    "dev": "concurrently --kill-others  \"npx dotenvx run -- npx nodemon ./ts/routes/index.ts\" \"npx sass --watch ./scss/styles.scss ./public/styles.css\" \"npm run watch-pgtyped\"",
+    "start-dev": "concurrently --kill-others  \"npx dotenvx run -- npx nodemon ./ts/routes/index.ts\" \"npx sass --watch ./scss/styles.scss ./static/styles.css\" \"npm run watch-pgtyped\"",
     "watch-pgtyped": "dotenvx run -- npx pgtyped -w -c ./pgtyped-config.cjs",
-    "build": "tsc",
+    "build": "tsc && sass ./scss/styles.scss ./static/styles.css",
     "start": "node ./js/routes/index.js",
     "dbinit": "ENV_FILE=${ENV_FILE:-.env} npx dotenvx run -f $ENV_FILE -- sh -c 'psql $PGURI -f init.sql'"
   }
